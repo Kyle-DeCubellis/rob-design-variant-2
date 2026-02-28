@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rob Laurie Electrical - Mini Split Specialist, Southborough MA</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { 
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      color: #2d3436;
+      background: #fafafa;
+    }
+    
+    /* Warm, earthy palette */
+    :root {
+      --primary: #8b6f47;
+      --accent: #d4a574;
+      --dark: #2d3436;
+      --light: #f8f6f1;
+      --green: #7a9b6f;
+      --warm-white: #fdfbf7;
+    }
+    
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--warm-white);
+      border-bottom: 2px solid var(--accent);
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--primary);
+    }
+    
+    .logo-subtitle {
+      font-size: 10px;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+    }
+    
+    .header-contact {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    
+    .phone-cta {
+      background: var(--green);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .phone-cta:hover {
+      background: #6a8c62;
+      transform: translateY(-2px);
+    }
+    
+    /* Hero Split Layout */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--warm-white);
+      min-height: 600px;
+    }
+    
+    .hero-left {
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .hero-eyebrow {
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--green);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: var(--dark);
+      font-weight: 700;
+    }
+    
+    .hero h1 em {
+      color: var(--accent);
+      font-style: normal;
+      font-weight: 700;
+    }
+    
+    .hero p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+    
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    
+    .badge {
+      background: white;
+      border: 2px solid var(--accent);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    .cta-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 14px 32px;
+      border-radius: 4px;
+      border: none;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: var(--green);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #6a8c62;
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .hero-right {
+      background: linear-gradient(135deg, var(--accent) 0%, #c99050 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.95;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(139, 111, 71, 0.15) 0%, rgba(212, 165, 116, 0.15) 100%);
+    }
+    
+    /* Story Section */
+    .story {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    
+    .story-text h2 {
+      font-size: 36px;
+      color: var(--dark);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .story-text h2 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+    
+    .story-text p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+    
+    .story-visual {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .story-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Before/After Section */
+    .before-after {
+      background: var(--light);
+      padding: 60px 20px;
+    }
+    
+    .before-after-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .before-after h2 {
+      font-size: 36px;
+      text-align: center;
+      color: var(--dark);
+      margin-bottom: 48px;
+    }
+    
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    
+    .ba-item {
+      position: relative;
+    }
+    
+    .ba-label {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(139, 111, 71, 0.9);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      z-index: 10;
+    }
+    
+    .ba-image {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .ba-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Why Choose */
+    .why-choose {
+      background: white;
+      padding: 60px 20px;
+    }
+    
+    .why-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      color: var(--dark);
+      margin-bottom: 48px;
+    }
+    
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .why-card {
+      background: var(--light);
+      padding: 32px;
+      border-radius: 8px;
+      border-top: 4px solid var(--accent);
+      transition: all 0.3s;
+    }
+    
+    .why-card:hover {
+      box-shadow: 0 12px 30px rgba(139, 111, 71, 0.15);
+      transform: translateY(-4px);
+    }
+    
+    .why-icon {
+      font-size: 42px;
+      margin-bottom: 16px;
+    }
+    
+    .why-card h3 {
+      font-size: 20px;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    
+    .why-card p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.7;
+    }
+    
+    /* Brands */
+    .brands {
+      padding: 60px 20px;
+      background: var(--light);
+    }
+    
+    .brands-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .brands h2 {
+      font-size: 28px;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    
+    .brands-subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+    
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+    
+    .brand-card {
+      padding: 30px;
+      border: 2px solid #e8ddd4;
+      border-radius: 8px;
+      background: white;
+      transition: all 0.3s;
+    }
+    
+    .brand-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 8px 20px rgba(212, 165, 116, 0.2);
+    }
+    
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    
+    .brand-card p {
+      font-size: 13px;
+      color: #666;
+    }
+    
+    /* Services */
+    .services {
+      background: white;
+      padding: 60px 20px;
+    }
+    
+    .services-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .services h2 {
+      font-size: 36px;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .service-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-item {
+      background: var(--light);
+      padding: 32px;
+      border-radius: 8px;
+      border-left: 5px solid var(--green);
+    }
+    
+    .service-item h3 {
+      font-size: 20px;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    
+    .service-item p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.7;
+    }
+    
+    /* One-Stop */
+    .one-stop {
+      padding: 40px 20px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      text-align: center;
+      color: white;
+    }
+    
+    .one-stop p {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    
+    .one-stop span {
+      font-size: 18px;
+      display: block;
+      margin-top: 8px;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      background: white;
+      padding: 60px 20px;
+    }
+    
+    .testimonials-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .testimonials h2 {
+      font-size: 36px;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .testimonial {
+      padding: 28px;
+      background: var(--light);
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .stars {
+      color: var(--accent);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .testimonial-quote {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 14px;
+    }
+    
+    /* Seasonal CTA */
+    .seasonal-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    
+    .seasonal-cta h2 {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+    
+    .seasonal-cta p {
+      font-size: 18px;
+      margin-bottom: 32px;
+      opacity: 0.95;
+    }
+    
+    .seasonal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .seasonal-item {
+      background: rgba(255,255,255,0.1);
+      padding: 24px;
+      border-radius: 6px;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    
+    .seasonal-item h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    
+    .seasonal-item p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    
+    footer p {
+      margin: 8px 0;
+      font-size: 14px;
+    }
+    
+    .footer-highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { min-height: 300px; }
+      .story { grid-template-columns: 1fr; }
+      .before-after-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 36px; }
+      .section-title { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+  <div>
+    <div class="logo">Rob Laurie</div>
+    <div class="logo-subtitle">Electrical • Heat Pump Specialist</div>
+  </div>
+  <div class="header-contact">
+    <a href="tel:5085550123" class="phone-cta">📞 (508) 555-0123</a>
+  </div>
+</header>
+
+<!-- Hero Split with Image -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Born & Raised • Trusted Local Expert</div>
+    <h1>Mini Split <em>Installation & Repair</em><br>From Someone Who Actually Lives Here</h1>
+    <p>No overhead. No subcontractors. No nonsense. Just Rob, transparent pricing, and 20+ years of knowing how to do it right the first time.</p>
+    
+    <div class="hero-badges">
+      <span class="badge">EPA 608 Certified</span>
+      <span class="badge">Panasonic • Mitsubishi • Daikin</span>
+      <span class="badge">One-Stop Shop</span>
+    </div>
+    
+    <div class="cta-group">
+      <a href="#" class="btn btn-primary">Schedule Free Consultation</a>
+      <a href="#" class="btn btn-secondary">See Our Work</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Crect fill='%23d4a574' width='600' height='600'/%3E%3C/svg%3E" alt="Modern mini split installation" class="hero-image">
+    <div class="hero-overlay"></div>
+  </div>
+</section>
+
+<!-- Story -->
+<section class="story">
+  <div class="story-text">
+    <h2>Why Your Neighbor Calls <em>Rob</em></h2>
+    <p><strong>No overhead means you get fair, transparent pricing.</strong> Rob is licensed, insured, and certified—but he doesn't have the machinery of a big company marking up costs. You pay for expertise, not layers of management.</p>
+    <p><strong>No subcontractors means he shows up himself.</strong> When you schedule with Rob, Rob arrives. He handles electrical integration, refrigerant work, testing, everything. One person you trust from start to finish.</p>
+    <p><strong>He knows the codes because he's built this community.</strong> Southborough, Framingham, Wayland—Rob knows the inspectors, the permits, the local quirks. Your installation passes on first inspection.</p>
+  </div>
+  <div class="story-visual">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='400'%3E%3Crect fill='%23d4a574' width='500' height='400'/%3E%3C/svg%3E" alt="Family enjoying comfortable home">
+  </div>
+</section>
+
+<!-- One-Stop -->
+<div class="one-stop">
+  <p>🛠️ One-Stop Shop</p>
+  <span>Installation • Repair • Maintenance • Electrical • Testing</span>
+</div>
+
+<!-- Before/After -->
+<section class="before-after">
+  <div class="before-after-container">
+    <h2>Out With the Old, In With the New</h2>
+    
+    <div class="before-after-grid">
+      <div class="ba-item">
+        <div class="ba-label">BEFORE</div>
+        <div class="ba-image">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Crect fill='%238b6f47' width='500' height='500'/%3E%3C/svg%3E" alt="Old window AC unit">
+        </div>
+      </div>
+      
+      <div class="ba-item">
+        <div class="ba-label">AFTER</div>
+        <div class="ba-image">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Crect fill='%237a9b6f' width='500' height='500'/%3E%3C/svg%3E" alt="Modern Mitsubishi mini split">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose -->
+<section class="why-choose">
+  <div class="why-container">
+    <h2 class="section-title">Why Homeowners Choose Rob</h2>
+    
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>Local Trust</h3>
+        <p>Born and raised in Southborough. Word-of-mouth reputation built over 20+ years. Your neighbors know him. He knows your neighborhood.</p>
+      </div>
+      
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Transparent Pricing</h3>
+        <p>No markup for overhead. No subcontractor margins stacked on top. No surprises. You know what you're paying for and why.</p>
+      </div>
+      
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h3>Technical Perfectionist</h3>
+        <p>EPA 608 certified. Knows every building code and state regulation. Installations pass inspection first time. Repairs actually stay fixed.</p>
+      </div>
+      
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>One Person, Full Service</h3>
+        <p>You don't coordinate between electrician and HVAC tech. Rob does the electrical integration, refrigerant work, testing, everything himself.</p>
+      </div>
+      
+      <div class="why-card">
+        <div class="why-icon">📞</div>
+        <h3>Always Accessible</h3>
+        <p>When your unit breaks in July, you call Rob directly. No voicemail maze. He responds to actual emergencies because he's a solo operator.</p>
+      </div>
+      
+      <div class="why-card">
+        <div class="why-icon">🛠️</div>
+        <h3>Handles It All</h3>
+        <p>Installation, repair, maintenance, spring tune-ups, emergency calls, electrical work. One person, one invoice, one point of contact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Brands -->
+<section class="brands">
+  <div class="brands-container">
+    <h2>Certified Installation Partner</h2>
+    <p class="brands-subtitle">Expert installation and service on the brands homeowners trust most</p>
+    
+    <div class="brands-grid">
+      <div class="brand-card">
+        <div class="brand-name">Panasonic</div>
+        <p>Efficient, quiet, reliable. Rob installs and maintains systems across all Panasonic models.</p>
+      </div>
+      
+      <div class="brand-card">
+        <div class="brand-name">Mitsubishi</div>
+        <p>The industry standard. Rob has installed 100+ Mitsubishi systems in New England.</p>
+      </div>
+      
+      <div class="brand-card">
+        <div class="brand-name">Daikin</div>
+        <p>Advanced efficiency. Rob is certified for installation, repair, and seasonal maintenance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services">
+  <div class="services-container">
+    <h2>What Rob Does (Everything)</h2>
+    
+    <div class="service-list">
+      <div class="service-item">
+        <h3>💨 Mini Split Installation</h3>
+        <p>New installation on renovations or replacing old HVAC systems. Electrical integration, evacuation, testing, code-compliant setup. Most systems installed in one day.</p>
+      </div>
+      
+      <div class="service-item">
+        <h3>🔧 Emergency Repair</h3>
+        <p>Your unit stops working in July? Call Rob. Same-day service, diagnosed and fixed. Refrigerant leaks, electrical issues, compressor problems—he handles it all.</p>
+      </div>
+      
+      <div class="service-item">
+        <h3>🌱 Spring Tune-Up</h3>
+        <p>Annual preventive maintenance before cooling season. Filter replacement, system check, efficiency optimization. Keeps your system running and catches problems early.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="testimonials-container">
+    <h2>What Homeowners Say</h2>
+    
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"Rob installed our mini split during our renovation. He was here early, explained everything, and was gone by lunch. System runs perfectly and the pricing was fair."</div>
+        <div class="testimonial-author">— Sarah M., Southborough</div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"Called him on a Saturday in July when our AC went out. He was at our house within an hour and had it running before dinner. Worth every penny."</div>
+        <div class="testimonial-author">— Michael T., Framingham</div>
+      </div>
+      
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-quote">"The electricity work and mini split installation could've been two different contractors. Rob did both perfectly. No coordination headaches, no surprises."</div>
+        <div class="testimonial-author">— Jennifer L., Wayland</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seasonal CTA -->
+<section class="seasonal-cta">
+  <h2>Plan Ahead</h2>
+  <p>Don't wait until your AC breaks or spring arrives. Schedule preventive maintenance now.</p>
+  
+  <div class="seasonal-grid">
+    <div class="seasonal-item">
+      <h3>🌱 Spring Tune-Up</h3>
+      <p>March–May. Get your system ready for summer. Filter changes, system check, efficiency optimization.</p>
+    </div>
+    
+    <div class="seasonal-item">
+      <h3>🌡️ Heat Wave Emergency</h3>
+      <p>July–August. If your unit breaks when you need it most, call Rob. Same-day response available.</p>
+    </div>
+    
+    <div class="seasonal-item">
+      <h3>🔄 Annual Maintenance</h3>
+      <p>Fall & Spring. Keep your system running for 15+ years. Preventive maintenance saves money.</p>
+    </div>
+  </div>
+  
+  <div style="margin-top: 32px;">
+    <a href="#" class="btn btn-secondary">Schedule Now</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p><span class="footer-highlight">Rob Laurie Electrical</span></p>
+  <p>EPA 608 Certified Master Electrician | Mini Split Heat Pump Specialist</p>
+  <p>📍 Southborough, MA | Serving MetroWest</p>
+  <p style="margin-top: 16px; font-size: 13px;">
+    📞 <strong>(508) 555-0123</strong> | 🚨 24/7 Emergency Service Available
+  </p>
+  <p style="margin-top: 20px; opacity: 0.7;">
+    No overhead. No subcontractors. Just Rob. © 2026
+  </p>
+</footer>
+
+</body>
+</html>

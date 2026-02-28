@@ -1,0 +1,23 @@
+# OS
+.DS_Store
+Thumbs.db
+.env
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (if we add build tools later)
+node_modules/
+dist/
+.next/
+
+# Local images (if storing locally)
+images/originals/
+
+# Temp files
+*.tmp
+*.bak
+.cache/
